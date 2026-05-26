@@ -63,7 +63,7 @@ function WorkHero() {
           muted 
           playsInline 
           className="w-full h-full object-cover"
-          src="/assets/videos/hero-bg-2.mp4" 
+          src="/assets/videos/dna-video.mp4" 
         />
         {/* Dark brand filter matching home page aesthetics */}
         <div className="absolute inset-0 bg-neutral-950/75 mix-blend-multiply" />

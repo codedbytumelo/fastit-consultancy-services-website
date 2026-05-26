@@ -19,7 +19,7 @@ const projects = [
     industry: "Business Systems / Enterprise Software",
     description: "Modern business operations platform focused on streamlining workflows, management visibility, and organizational operations.",
     badge: "COMING SOON",
-    slug: "/work/assentia", // Destination path for redirection
+    slug: "/work", // Destination path for redirection
     defaultImage: "/assets/images/digital-tablet-online-learning.jpg", 
     projectImage: "/assets/images/Assentia Logo.png",
   },

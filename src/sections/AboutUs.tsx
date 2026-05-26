@@ -52,10 +52,10 @@ export default function AboutUs() {
             {/* Overlapping Team Avatars + Brand Tech Dot */}
             <div className="flex items-center -space-x-3">
               <div className="w-10 h-10 rounded-full border-2 border-white overflow-hidden bg-neutral-200">
-                <img src="/assets/images/avatar1.jpg" alt="Team professional" className="w-full h-full object-cover" />
+                <img src="/assets/images/Tumelo-Mokalane-CEO.jpg" alt="Team professional" className="w-full h-full object-cover" />
               </div>
               <div className="w-10 h-10 rounded-full border-2 border-white overflow-hidden bg-neutral-300">
-                <img src="/assets/images/avatar2.jpg" alt="Team professional" className="w-full h-full object-cover" />
+                <img src="/assets/images/Jeminah-Tau-VP.jpg" alt="Team professional" className="w-full h-full object-cover" />
               </div>
               <div className="w-10 h-10 rounded-full bg-[#d6ff3f] border-2 border-white flex items-center justify-center text-black">
                 <Sparkles className="w-4 h-4 fill-black" />
@@ -87,7 +87,7 @@ export default function AboutUs() {
               We design and develop digital products, business systems, and scalable platforms from concept to deployment.
             </p>
           </div>
-          <a href="/services/product-development" className="text-sm font-bold underline underline-offset-4 tracking-tight inline-block pt-6 hover:text-neutral-600 transition-colors">
+          <a href="/services" className="text-sm font-bold underline underline-offset-4 tracking-tight inline-block pt-6 hover:text-neutral-600 transition-colors">
             Learn more
           </a>
         </motion.div>
@@ -111,7 +111,7 @@ export default function AboutUs() {
               We provide practical IT services, technology consulting, and digital transformation solutions for organizations.
             </p>
           </div>
-          <a href="/services/it-solutions" className="text-sm font-bold underline underline-offset-4 tracking-tight inline-block pt-6 hover:text-neutral-600 transition-colors">
+          <a href="/services" className="text-sm font-bold underline underline-offset-4 tracking-tight inline-block pt-6 hover:text-neutral-600 transition-colors">
             Learn more
           </a>
         </motion.div>
@@ -135,7 +135,7 @@ export default function AboutUs() {
               We embed experienced technology professionals into teams through fractional and operational leadership roles.
             </p>
           </div>
-          <a href="/services/talent-services" className="text-sm font-bold underline underline-offset-4 tracking-tight inline-block pt-6 hover:text-neutral-600 transition-colors">
+          <a href="/services" className="text-sm font-bold underline underline-offset-4 tracking-tight inline-block pt-6 hover:text-neutral-600 transition-colors">
             Learn more
           </a>
         </motion.div>

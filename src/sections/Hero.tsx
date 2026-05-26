@@ -128,7 +128,7 @@ export default function Hero() {
             >
               {/* Primary Action Button */}
               <a
-                href="/start-a-project"
+                href="/contact"
                 className="inline-flex items-center gap-2.5 px-6 sm:px-7 py-3 bg-[#d6ff3f] text-black text-sm font-bold rounded-full hover:bg-[#cbf235] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(214,255,63,0.15)]"
               >
                 <span>Start A Project With Us</span>

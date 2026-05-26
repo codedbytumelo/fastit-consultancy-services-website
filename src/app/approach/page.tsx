@@ -113,7 +113,7 @@ function ApproachHero() {
           muted 
           playsInline 
           className="w-full h-full object-cover"
-          src="/assets/videos/hero-bg-2.mp4" 
+          src="/assets/videos/dna-video.mp4"  
         />
         <div className="absolute inset-0 bg-neutral-950/75 mix-blend-multiply" />
         <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/20 to-neutral-950/40" />

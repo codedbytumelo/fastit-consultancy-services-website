@@ -11,7 +11,7 @@ const services = [
     title: "Product Development",
     description: "We design and develop scalable digital products and business solutions from concept to deployment.\n\nServices Include:\n• SaaS Product Development\n• MVP Development\n• Web Applications\n• Business Systems\n• UI / UX Design\n• API Integrations",
     image: "/assets/images/mobile-app-mockup.jpg",
-    ctaLink: "/start-a-project",
+    ctaLink: "/contact",
     ctaText: "Start a Project",
   },
   {
@@ -19,7 +19,7 @@ const services = [
     title: "IT Consultancy Services",
     description: "We provide practical IT solutions, consulting services, and digital transformation support for organizations.\n\nServices Include:\n• IT Consulting\n• Digital Transformation\n• Technical Support\n• Hosting & Deployment\n• Infrastructure Support\n• Systems Integration",
     image: "/assets/images/network-switch-with-cables.jpg",
-    ctaLink: "/book-a-call",
+    ctaLink: "/contact",
     ctaText: "Book a Call",
   },
   {
@@ -27,7 +27,7 @@ const services = [
     title: "Embedded Talent Services",
     description: "We embed experienced technology professionals into teams through leadership, consulting, and operational roles.\n\nServices Include:\n• Fractional CTO\n• Fractional CIO\n• IT Management\n• Product Leadership\n• Technical Consulting\n• Team Augmentation",
     image: "/assets/images/businessman-analyzing-performance-metrics-his-computer-workplace.jpg",
-    ctaLink: "/contact-us",
+    ctaLink: "/contact",
     ctaText: "Contact Us",
   },
 ];
