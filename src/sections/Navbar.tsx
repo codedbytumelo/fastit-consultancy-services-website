@@ -32,8 +32,6 @@ const navItems = [
 ];
 
 interface NavbarProps {
-  // 'light' means the page section is light (requires dark text/emblems on scroll)
-  // 'dark' means the page section is dark (requires white/lime text/emblems on scroll)
   sectionTheme?: 'light' | 'dark';
 }
 
@@ -59,29 +57,22 @@ export default function Navbar({ sectionTheme = 'light' }: NavbarProps) {
 
   const isLightSection = sectionTheme === 'light';
 
-  // FIX: Stays transparent at the top. Turns into a blurry background container on scroll.
   const navbarBgStyles = hasScrolled
     ? isLightSection 
       ? 'bg-white/80 text-black border-b border-neutral-200/50 shadow-md backdrop-blur-md'
       : 'bg-neutral-950/80 text-white border-b border-white/5 shadow-xl backdrop-blur-md'
-    : 'bg-transparent text-white'; // Pristine transparent state at top
+    : 'bg-transparent text-white';
 
-  // Pill styling logic based on scroll positions
   const pillLinkStyles = hasScrolled
     ? isLightSection
       ? 'bg-neutral-100/80 text-neutral-800 hover:bg-neutral-200 hover:text-black'
       : 'bg-white/[0.08] text-white/70 hover:bg-white/[0.15] hover:text-white'
     : 'bg-white/[0.1] text-white hover:bg-white/[0.2] backdrop-blur-sm';
 
-  // PROVISION FOR ALL EMBLEMS: Rotates assets dynamically based on background state
   const getEmblemSrc = () => {
     if (isLightSection) {
-      // Scrolled state over light page backgrounds (e.g., /services text)
-      // Switch to "/assets/images/fastIT-emblem-light.png" for solid black if preferred
       return "/assets/images/fastIT-emblem-vivide-red.png";
     } else {
-      // Scrolled state over dark page backgrounds
-      // Switch to "/assets/images/fastIT-emblem-dark.png" for solid white if preferred
       return "/assets/images/fastIT-emblem-lime-green.png";
     }
   };
@@ -93,33 +84,33 @@ export default function Navbar({ sectionTheme = 'light' }: NavbarProps) {
           <div className="flex items-center justify-between h-[72px]">
 
             {/* Morphing Logo Container */}
-            <div className="flex-shrink-0">
-              <Link href="/" className="flex items-center h-10 overflow-visible group">
+            <div className="flex-shrink-0 flex items-center">
+              <Link href="/" className="flex items-center h-14 overflow-visible group">
                 <motion.div 
                   layout
                   transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                  className="relative flex items-center justify-start"
+                  className="relative flex items-center justify-start h-full"
                 >
                   <AnimatePresence mode="wait" initial={false}>
                     {!hasScrolled ? (
-                      // 1. Full Initial Logo (Stays visible at the top)
+                      // 1. Full Initial Logo (Increased to h-12 for clean visibility)
                       <motion.img
                         key="full-logo"
                         src="/assets/images/fastIT-logo-2.png"
                         alt="Fast IT Full Logo"
-                        className="h-7 w-auto block object-left"
+                        className="h-12 w-auto block object-contain object-left"
                         initial={{ opacity: 0, x: -15 }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -15 }}
                         transition={{ duration: 0.35, ease: "easeInOut" }}
                       />
                     ) : (
-                      // 2. Dynamic Emblem (Revealed on Scroll)
+                      // 2. Dynamic Emblem (Increased to h-11 to match balance)
                       <motion.img
                         key="emblem-logo"
                         src={getEmblemSrc()}
                         alt="Fast IT Emblem"
-                        className="h-8 w-auto block"
+                        className="h-11 w-auto block object-contain"
                         initial={{ opacity: 0, scale: 0.75, rotate: -10 }}
                         animate={{ opacity: 1, scale: 1, rotate: 0 }}
                         exit={{ opacity: 0, scale: 0.75, rotate: 10 }}
