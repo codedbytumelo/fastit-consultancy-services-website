@@ -108,6 +108,12 @@ export default function AutoReachInnovations() {
                     Website Development • Branding • IT Management • Digital Operations
                   </span>
                 </div>
+                <div className="col-span-2">
+                  <span className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider block mb-1">Project Duration</span>
+                  <span className="text-xs font-semibold leading-relaxed text-neutral-300 block">
+                    18 March 2026 - 07 May 2026
+                  </span>
+                </div>
               </div>
             </motion.div>
           </div>

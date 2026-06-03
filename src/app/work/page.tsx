@@ -24,6 +24,7 @@ const projects = [
     status: "LIVE",
     industry: "Automotive Technology",
     projectType: "Client Project",
+    duration: "18 March 2026 - 07 May 2026",
     overview: "Auto Reach Innovations is an automotive-focused platform supporting lead generation, customer acquisition, dealership workflows, and digital business operations. The project involved building digital experiences and supporting operational systems designed to improve visibility, engagement, and business processes.",
     bgImage: "/assets/images/Auto-Reach-Innovations.png", 
     isLocked: false,
@@ -233,6 +234,19 @@ export default function WorkPage() {
                     </span>
                   </div>
 
+                  {/* Project Duration */}
+                  {project.duration && (
+                    <div className="col-span-2">
+                      <span className="text-[10px] font-mono tracking-widest text-neutral-500 uppercase block">
+                        Project Duration
+                      </span>
+                      <span className="text-xs font-bold text-neutral-200 block mt-1 tracking-tight">
+                        {project.duration}
+                      </span>
+                    </div>
+                  )}
+
+                  {/* Availability Matrix (for locked projects) */}
                   {project.isLocked && (
                     <div className="col-span-2">
                       <span className="text-[10px] font-mono tracking-widest text-red-400 uppercase block">

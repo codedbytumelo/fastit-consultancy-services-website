@@ -92,7 +92,7 @@ function LogoTicker() {
     <section className="w-full bg-white py-12 border-b border-neutral-100 overflow-hidden px-6">
       <div className="max-w-5xl mx-auto flex flex-col items-center space-y-8">
         <span className="text-xs font-medium text-neutral-400 tracking-wide uppercase">
-          Trusted by companies around the world
+          See the brands we helped build
         </span>
 
         {/* Masking container gives clean fade-out transitions on both edges */}
