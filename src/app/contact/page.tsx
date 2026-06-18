@@ -72,6 +72,13 @@ const inquiryContent: Record<InquiryType, InquiryDetails> = {
   }
 };
 
+// Google Apps Script URLs for each form type
+const formUrls = {
+  project: "https://script.google.com/macros/s/AKfycbx0OOqPEguumsf8v_0DpaCOf-RCg9AuGIHtlCAA0SQ3cSjK2ygxpczQyf49zKQJi_ZXDw/exec",
+  service: "https://script.google.com/macros/s/AKfycbwR_KrIi6219567fDz6ArRjsnfhHwo4rTj6VMQPJIW8Hqny11I3BqJlVPSgp0_OBSA6GA/exec",
+  call: "https://script.google.com/macros/s/AKfycbyy5soXKl64W28pYCbvP57OqvYRfP3vWTsCoRkSk1cPtk1Iz4KA98tAECfKrfanXpOJeQ/exec"
+};
+
 export default function ContactPage() {
   const [activeTab, setActiveTab] = useState<InquiryType>("project");
   
@@ -112,6 +119,9 @@ export default function ContactPage() {
     meetingType: "Online"
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+
   const handleInputChange = (key: string, value: any) => {
     setFormState((prev) => ({ ...prev, [key]: value }));
   };
@@ -121,9 +131,120 @@ export default function ContactPage() {
     handleInputChange("serviceRequired", inquiryContent[tab].items[0]);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Submitting context matrix:", { inquiryContext: activeTab, submittedFields: formState });
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    try {
+      const formData = new URLSearchParams();
+      
+      // Add form data based on active tab
+      if (activeTab === "project") {
+        formData.append("Full Name *", formState.name);
+        formData.append("Company / Organization Name", formState.companyName);
+        formData.append("Email Address *", formState.email);
+        formData.append("Phone Number *", formState.phone);
+        formData.append("Country / Location", formState.country);
+        formData.append("Service Required *", formState.serviceRequired);
+        formData.append("Project Name *", formState.projectName);
+        formData.append("Project Description *", formState.projectDescription);
+        formData.append("Target Audience", formState.targetAudience);
+        formData.append("Business Goals", formState.businessGoals);
+        formData.append("Existing Product?", formState.existingProduct);
+        formData.append("Existing Brand Assets?", formState.existingBrandAssets);
+        formData.append("Project Stage", formState.projectStage);
+        formData.append("Desired Timeline", formState.desiredTimeline);
+        formData.append("Estimated Budget Range", formState.estimatedBudget);
+      } else if (activeTab === "service") {
+        formData.append("Full Name *", formState.name);
+        formData.append("Company Name *", formState.companyName);
+        formData.append("Email Address *", formState.email);
+        formData.append("Phone Number *", formState.phone);
+        formData.append("Industry", formState.industry);
+        formData.append("Service Required *", formState.serviceRequired);
+        formData.append("Current Challenge / Problem *", formState.currentChallenge);
+        formData.append("Existing Systems", formState.existingSystems);
+        formData.append("Desired Outcome", formState.desiredOutcome);
+        formData.append("Current Technology Stack", formState.currentTechStack);
+        formData.append("Support Type", formState.supportType);
+        formData.append("Preferred Start Date", formState.preferredStartDate);
+        formData.append("Notes / Additional Information", formState.additionalNotes);
+      } else if (activeTab === "call") {
+        formData.append("Full Name *", formState.name);
+        formData.append("Company Name *", formState.companyName);
+        formData.append("Email Address *", formState.email);
+        formData.append("Phone Number *", formState.phone);
+        formData.append("Role Required *", formState.serviceRequired);
+        formData.append("Current Challenge *", formState.currentChallenge);
+        formData.append("Proposed Start Date", formState.proposedStartDate);
+        formData.append("Preferred Date", formState.preferredDate);
+        formData.append("Notes / Additional Information", formState.additionalNotes);
+      }
+
+      // Submit to Google Apps Script
+      const response = await fetch(formUrls[activeTab], {
+        method: "POST",
+        body: formData,
+        mode: "no-cors"
+      });
+
+      // Note: Due to no-cors mode, we can't check response status
+      // but the form submission will still go through
+      setSubmitStatus("success");
+      
+      // Reset form after successful submission
+      setFormState({
+        name: "",
+        companyName: "",
+        email: "",
+        phone: "",
+        country: "",
+        industry: "",
+        department: "",
+        serviceRequired: inquiryContent[activeTab].items[0],
+        projectName: "",
+        projectDescription: "",
+        targetAudience: "",
+        businessGoals: "",
+        keyFeatures: "",
+        existingProduct: "No",
+        existingBrandAssets: "No",
+        projectStage: "Idea Stage",
+        desiredTimeline: "",
+        estimatedBudget: "",
+        currentChallenge: "",
+        existingSystems: "",
+        desiredOutcome: "",
+        currentTechStack: "",
+        supportType: "One-Time Support",
+        preferredStartDate: "",
+        urgency: "Medium",
+        additionalNotes: "",
+        engagementType: "Advisory",
+        teamSize: "",
+        expectedDuration: "",
+        proposedStartDate: "",
+        responsibilitiesRequired: "",
+        preferredDate: "",
+        preferredTime: "",
+        meetingType: "Online"
+      });
+
+      // Show success message for 3 seconds
+      setTimeout(() => {
+        setSubmitStatus("idle");
+      }, 3000);
+
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setSubmitStatus("error");
+      setTimeout(() => {
+        setSubmitStatus("idle");
+      }, 3000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -495,14 +616,39 @@ export default function ContactPage() {
                       </div>
                     )}
 
+                    {/* Submit button with loading and status states */}
                     <button 
                       type="submit"
-                      className="w-full sm:w-auto relative overflow-hidden inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-widest text-white bg-gradient-to-l from-[#d6ff3f] via-[#0B0B0C] to-[#0B0B0C] bg-[length:200%_100%] bg-right hover:bg-left hover:text-neutral-950 border border-white/10 hover:border-[#d6ff3f]/40 px-8 py-4 rounded-xl transition-all duration-700 ease-out shadow-lg shadow-black/40 group z-10"
+                      disabled={isSubmitting}
+                      className="w-full sm:w-auto relative overflow-hidden inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-widest text-white bg-gradient-to-l from-[#d6ff3f] via-[#0B0B0C] to-[#0B0B0C] bg-[length:200%_100%] bg-right hover:bg-left hover:text-neutral-950 border border-white/10 hover:border-[#d6ff3f]/40 px-8 py-4 rounded-xl transition-all duration-700 ease-out shadow-lg shadow-black/40 group z-10 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      <span>{inquiryContent[activeTab].ctaText}</span>
-                      <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+                      {isSubmitting ? (
+                        <>
+                          <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                          </svg>
+                          Submitting...
+                        </>
+                      ) : (
+                        <>
+                          <span>{inquiryContent[activeTab].ctaText}</span>
+                          <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+                        </>
+                      )}
                     </button>
 
+                    {/* Status message */}
+                    {submitStatus === "success" && (
+                      <div className="mt-4 p-3 bg-green-500/20 border border-green-500/50 rounded-xl text-xs text-green-400 text-center">
+                        ✓ Thank you! Your submission has been received.
+                      </div>
+                    )}
+                    {submitStatus === "error" && (
+                      <div className="mt-4 p-3 bg-red-500/20 border border-red-500/50 rounded-xl text-xs text-red-400 text-center">
+                        ✗ Submission failed. Please try again.
+                      </div>
+                    )}
                   </motion.div>
                 </AnimatePresence>
               </form>

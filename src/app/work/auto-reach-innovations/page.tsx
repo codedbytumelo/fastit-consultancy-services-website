@@ -45,7 +45,7 @@ export default function AutoReachInnovations() {
             <div className="lg:col-span-8 space-y-6">
               {/* Metadata Badges Array */}
               <div className="flex flex-wrap gap-2">
-                {["LIVE", "AUTOMOTIVE", "WEBSITE DEVELOPMENT", "BRANDING", "IT MANAGEMENT"].map((badge, idx) => (
+                {["AUTOMOTIVE", "WEBSITE DEVELOPMENT", "BRANDING", "IT MANAGEMENT"].map((badge, idx) => (
                   <span 
                     key={idx} 
                     className={`text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full border ${
@@ -91,13 +91,7 @@ export default function AutoReachInnovations() {
                   <span className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider block mb-1">Client</span>
                   <span className="text-sm font-semibold text-[#EBEAE6]">Auto Reach Innovations</span>
                 </div>
-                <div>
-                  <span className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider block mb-1">Status</span>
-                  <span className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-400 bg-emerald-950/50 border border-emerald-500/20 px-2.5 py-0.5 rounded-full">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    LIVE
-                  </span>
-                </div>
+                
                 <div className="col-span-2">
                   <span className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider block mb-1">Industry</span>
                   <span className="text-sm font-semibold text-[#EBEAE6]">Automotive Technology</span>

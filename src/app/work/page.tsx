@@ -21,32 +21,11 @@ const projects = [
   {
     id: "01",
     title: "Auto Reach Innovations",
-    status: "LIVE",
     industry: "Automotive Technology",
     projectType: "Client Project",
     duration: "18 March 2026 - 07 May 2026",
     overview: "Auto Reach Innovations is an automotive-focused platform supporting lead generation, customer acquisition, dealership workflows, and digital business operations. The project involved building digital experiences and supporting operational systems designed to improve visibility, engagement, and business processes.",
-    bgImage: "/assets/images/Auto-Reach-Innovations.png", 
-    isLocked: false,
-  },
-  {
-    id: "02",
-    title: "Assentia",
-    status: "LOCKED • COMING SOON",
-    industry: "Business Systems / Enterprise Software",
-    projectType: "Internal Product",
-    overview: "Assentia is an upcoming business operations platform focused on helping organizations improve visibility, workflows, operational management, and internal processes. The project is currently under development and details remain private until public release.",
-    bgImage: "/assets/images/Assentia Logo.png", 
-    isLocked: true,
-  },
-  {
-    id: "03",
-    title: "Devlaunch",
-    status: "CONCEPT PROJECT",
-    industry: "Product Development",
-    projectType: "Concept Initiative",
-    overview: "Devlaunch is a concept initiative exploring product development workflows and solutions aimed at helping founders, startups, and businesses accelerate digital product launches. The project is currently in concept and planning stages.",
-    bgImage: "/assets/images/Devlaunch Logo_1.png", 
+    bgImage: "/assets/images/Auto-Reach-Innovations.png",
     isLocked: false,
   }
 ];
@@ -171,13 +150,7 @@ export default function WorkPage() {
                     <span className="text-xs font-mono font-bold tracking-widest text-neutral-400">
                       /{project.id}
                     </span>
-                    <span className={`text-[10px] font-mono tracking-widest px-3 py-1 rounded-full uppercase font-bold border ${
-                      project.isLocked 
-                        ? "bg-red-500/10 text-red-400 border-red-500/30" 
-                        : "bg-[#d6ff3f]/10 text-[#d6ff3f] border-[#d6ff3f]/20"
-                    }`}>
-                      {project.status}
-                    </span>
+                    
                   </div>
 
                   <h3 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white leading-none">
