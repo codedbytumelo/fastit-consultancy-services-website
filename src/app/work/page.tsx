@@ -20,6 +20,16 @@ const fadeUp = {
 const projects = [
   {
     id: "01",
+    title: "Wayazi",
+    industry: "Operational Intelligence",
+    projectType: "Flagship Product Platform",
+    duration: "Ongoing Strategic Platform",
+    overview: "Wayazi is Fastit's flagship operational intelligence backbone designed to transform fragmented business workflows into unified, real-time insights. By bridging real-time data with strategic execution, Wayazi eliminates operational bottlenecks, optimizes resource management, and drives predictable performance across enterprise teams.",
+    bgImage: "/assets/images/wayazi-logo.png", // Ensure you add your Wayazi asset here
+    isLocked: false,
+  },
+  {
+    id: "02",
     title: "Auto Reach Innovations",
     industry: "Automotive Technology",
     projectType: "Client Project",
@@ -80,7 +90,7 @@ function WorkHero() {
             Building Products, Systems & Technology Solutions
           </h2>
           <p className="text-neutral-400 text-sm leading-relaxed font-normal">
-            Our work focuses on solving operational challenges, building digital products, and delivering practical technology solutions for businesses and organizations. From client projects to internal products and concept initiatives, we combine product thinking and technical execution to create scalable digital experiences.
+            Our work focuses on solving operational challenges, building digital products, and delivering practical technology solutions for businesses and organizations. From proprietary internal platforms like Wayazi to client solutions, we combine product thinking and technical execution to create scalable enterprise software.
           </p>
         </motion.div>
       </div>
@@ -150,7 +160,6 @@ export default function WorkPage() {
                     <span className="text-xs font-mono font-bold tracking-widest text-neutral-400">
                       /{project.id}
                     </span>
-                    
                   </div>
 
                   <h3 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white leading-none">
@@ -172,7 +181,7 @@ export default function WorkPage() {
                         href={`/work/${project.title.toLowerCase().replace(/\s+/g, "-")}`}
                         className="inline-flex items-center bg-white text-black hover:bg-[#d6ff3f] hover:text-black text-xs font-bold uppercase tracking-wider px-6 py-4 rounded-full transition-all duration-300 shadow-lg group"
                       >
-                        Explore Case Study
+                        Explore Product Details
                         <svg className="w-4 h-4 ml-2 transform transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                         </svg>
