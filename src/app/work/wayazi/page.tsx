@@ -99,7 +99,7 @@ export default function WayaziPage() {
                 <div className="col-span-2">
                   <span className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider block mb-1">Deployment Architecture</span>
                   <span className="text-xs font-semibold leading-relaxed text-neutral-300 block">
-                    Cloud • Edge IoT • Mobile Workspaces • Enterprise API Integrations
+                    Cloud • Edge IoT • Mobile Workspaces • Autonomous AI Agents • Enterprise APIs
                   </span>
                 </div>
 
@@ -152,11 +152,11 @@ export default function WayaziPage() {
                 "Coordinate field teams and technicians",
                 "Automate operational workflows",
                 "Detect incidents & generate work orders automatically",
+                "Deploy AI agents for predictive analysis",
                 "Track operational performance",
                 "Improve response times",
                 "Reduce operational costs",
-                "Increase asset availability",
-                "Provide executive-level operational intelligence"
+                "Increase asset availability"
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-2 text-neutral-200">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#cbeb70] mt-1.5 flex-shrink-0" />
@@ -172,31 +172,36 @@ export default function WayaziPage() {
           <div className="space-y-4 mb-12">
             <h2 className="text-3xl font-bold tracking-tight text-[#0B0B0C]">Core Platform Ecosystem</h2>
             <p className="text-sm text-neutral-600 max-w-2xl">
-              Wayazi consists of several integrated products designed to work in synergy across office, field, edge, and access governance tiers.
+              Wayazi consists of several integrated products designed to work in synergy across office, field, edge, and intelligent automation tiers.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
-                title: "Wayazi Core",
+                title: "Wayazi",
                 tagline: "Central Operational Command",
                 description: "The central operational platform where organizations manage operations, assets, workflows, customers, suppliers, reports, and core business processes."
               },
               {
-                title: "Wayazi Field",
-                tagline: "Mobile Field Workspace",
-                description: "A mobile-first workspace for technicians, inspectors, engineers, sales teams, and field personnel to receive assignments, complete work orders, capture proof of work, and synchronize data in real time."
+                title: "Assentia",
+                tagline: "Live Telemetry and Monitoring",
+                description: "A live telemetry and monitoring platform that connects IoT devices, industrial sensors, SCADA systems, cameras, and edge devices to provide real-time visibility into physical assets and infrastructure."
+     },
+              {
+                title: "Altiora",
+                tagline: "Workforce Management & Field Operations",
+                description: "A workforce management and field operations platform that enables organizations to schedule, dispatch, and track field teams, manage attendance, capture proof of work, and optimize field service operations including the occupational health and safety of teams in the field."
               },
               {
-                title: "Wayazi Edge",
-                tagline: "Operational Monitoring Layer",
-                description: "Connects IoT devices, smart equipment, industrial sensors, telemetry, cameras, and edge devices to provide live visibility into physical assets and infrastructure."
+                title: "Quantara",
+                tagline: "Asset management & Maintenance",
+                description: "A comprehensive asset management and maintenance platform that tracks asset health, manages preventive maintenance schedules, generates work orders, and provides insights into asset performance and lifecycle."
               },
               {
-                title: "Wayazi Cync",
-                tagline: "Identity & Access Management",
-                description: "Identity and access management that securely manages users, authentication, permissions, teams, organizations, and system access across the platform."
+                title: "Wayazi AI",
+                tagline: "AI Assistant & Autonomous Agents",
+                description: "An intelligent operational assistant, autonomous AI agents, and workflow engine that predicts failures, automates routine decisions, optimizes asset health, and orchestrates enterprise workflows."
               }
             ].map((product, idx) => (
               <motion.div 
@@ -260,7 +265,7 @@ export default function WayaziPage() {
                       "Operational Command Center", "Asset Management", "Work Order Management",
                       "Preventive Maintenance", "Incident Management", "Field Service Management",
                       "Fleet Monitoring", "Attendance & Workforce", "Proof of Work",
-                      "Live Dashboards", "Reporting & Analytics", "Operational Intelligence",
+                      "AI Assistant & Copilot", "Autonomous AI Agents", "Predictive Analytics",
                       "Workflow Automation", "Customer & Supplier Hub", "Inventory Integration",
                       "Notifications & Alerts", "API Integrations", "IoT Connectivity",
                       "Role-Based Access", "Audit Trails"
@@ -286,7 +291,7 @@ export default function WayaziPage() {
                     </span>
                     <h3 className="text-2xl font-bold tracking-tight text-white">The Operating System for Industrial Ops</h3>
                     <p className="text-sm text-neutral-300 leading-relaxed font-normal">
-                      Wayazi's vision is to become the operating system for industrial and operational organizations by connecting operational technology (OT), information technology (IT), and human workflows into one intelligent platform.
+                      Wayazi's vision is to become the operating system for industrial and operational organizations by connecting operational technology (OT), information technology (IT), human workflows, and autonomous AI agents into one intelligent platform.
                     </p>
                     <p className="text-xs text-neutral-400 leading-relaxed">
                       The platform empowers organizations to move beyond isolated systems and spreadsheets, creating a connected operational ecosystem where every asset, task, employee, and event contributes to a single source of operational truth.
@@ -315,6 +320,7 @@ export default function WayaziPage() {
                         "See everything happening across their operations.",
                         "Respond faster to incidents and service requests.",
                         "Improve collaboration between office and field teams.",
+                        "Leverage AI agents for automated dispatch & triage.",
                         "Make data-driven operational decisions.",
                         "Maximize asset utilization and uptime.",
                         "Reduce operational costs through automation.",
@@ -350,7 +356,7 @@ export default function WayaziPage() {
                   Strategic Clarity in Motion
                 </span>
                 <h3 className="text-3xl md:text-5xl font-black tracking-tight text-white">
-                  Connecting OT, IT & Human Workflows.
+                  Connecting OT, IT, AI & Human Workflows.
                 </h3>
               </div>
             </section>
